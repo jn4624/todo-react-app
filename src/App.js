@@ -25,11 +25,11 @@ class App extends React.Component {
   // delete 함수 추가
   delete = (item) => {
     const thisItems = this.state.items;
-    console.log("Before Update Items : ", this.state.items);
+    console.log("before update items : ", this.state.items);
     const newItems = thisItems.filter(e => e.id !== item.id);
     this.setState({ items: newItems }, () => {
       // 디버깅 콜백
-      console.log("Update Items : ", this.state.items);
+      console.log("update Items : ", this.state.items);
     });
   }
 
