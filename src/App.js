@@ -32,6 +32,12 @@ class App extends React.Component {
     );
   };
 
+  update = (item) => {
+    call("/todo", "PUT", item).then((response) =>
+      this.setState({ items: response.data })
+    );
+  }
+
   // add 함수 추가
   // add = (item) => {
   //   const thisItems = this.state.items;
@@ -58,7 +64,12 @@ class App extends React.Component {
       <Paper style={{ margin: 16 }}>
         <List>
           {this.state.items.map((item, idx) => (
-            <Todo item={item} key={item.id} delete={this.delete} />
+            <Todo
+              item={item}
+              key={item.id}
+              delete={this.delete}
+              update={this.update}
+            />
           ))}
         </List>
       </Paper>
